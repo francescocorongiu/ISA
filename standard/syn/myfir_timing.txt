@@ -1,0 +1,102 @@
+Information: Updating design information... (UID-85)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : myfir_NB9
+Version: O-2018.06-SP4
+Date   : Fri Oct 23 18:44:25 2020
+****************************************
+
+Operating Conditions: typical   Library: NangateOpenCellLibrary
+Wire Load Model Mode: top
+
+  Startpoint: Reg_xi_2/Q_reg[0]
+              (rising edge-triggered flip-flop clocked by clk1)
+  Endpoint: Reg_dout/Q_reg[8]
+            (rising edge-triggered flip-flop clocked by clk1)
+  Path Group: clk1
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  myfir_NB9          5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk1 (rise edge)                                  0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  Reg_xi_2/Q_reg[0]/CK (DFF_X1)                           0.00       0.00 r
+  Reg_xi_2/Q_reg[0]/Q (DFF_X1)                            0.09       0.09 f
+  Reg_xi_2/Q[0] (regn_synch_N9_6)                         0.00       0.09 f
+  add_98/A[0] (myfir_NB9_DW01_add_7)                      0.00       0.09 f
+  add_98/U1/ZN (AND2_X1)                                  0.05       0.14 f
+  add_98/U59/ZN (NAND2_X1)                                0.04       0.17 r
+  add_98/U61/ZN (NAND3_X1)                                0.04       0.21 f
+  add_98/U53/ZN (NAND2_X1)                                0.04       0.25 r
+  add_98/U16/ZN (NAND3_X1)                                0.04       0.30 f
+  add_98/U21/ZN (NAND2_X1)                                0.04       0.34 r
+  add_98/U24/ZN (NAND3_X1)                                0.04       0.37 f
+  add_98/U30/ZN (NAND2_X1)                                0.04       0.41 r
+  add_98/U32/ZN (NAND3_X1)                                0.04       0.44 f
+  add_98/U40/ZN (NAND2_X1)                                0.04       0.48 r
+  add_98/U35/ZN (NAND3_X1)                                0.05       0.53 f
+  add_98/U12/ZN (XNOR2_X2)                                0.09       0.62 r
+  add_98/SUM[6] (myfir_NB9_DW01_add_7)                    0.00       0.62 r
+  mult_104/b[6] (myfir_NB9_DW_mult_tc_3)                  0.00       0.62 r
+  mult_104/U332/ZN (XNOR2_X1)                             0.08       0.70 r
+  mult_104/U329/ZN (OAI22_X1)                             0.04       0.74 f
+  mult_104/U50/S (FA_X1)                                  0.14       0.87 r
+  mult_104/U49/S (FA_X1)                                  0.11       0.99 f
+  mult_104/U284/ZN (NAND2_X1)                             0.03       1.02 r
+  mult_104/U240/ZN (AND3_X2)                              0.06       1.09 r
+  mult_104/U239/ZN (OAI222_X1)                            0.05       1.14 f
+  mult_104/U271/ZN (NAND2_X1)                             0.03       1.17 r
+  mult_104/U274/ZN (NAND3_X1)                             0.03       1.21 f
+  mult_104/U9/CO (FA_X1)                                  0.09       1.30 f
+  mult_104/U8/CO (FA_X1)                                  0.09       1.39 f
+  mult_104/U7/CO (FA_X1)                                  0.10       1.48 f
+  mult_104/U232/ZN (NAND2_X1)                             0.03       1.52 r
+  mult_104/U234/ZN (NAND3_X1)                             0.04       1.55 f
+  mult_104/U5/CO (FA_X1)                                  0.10       1.65 f
+  mult_104/U246/ZN (NAND2_X1)                             0.05       1.70 r
+  mult_104/U237/ZN (NAND3_X1)                             0.04       1.74 f
+  mult_104/U252/ZN (NAND2_X1)                             0.03       1.77 r
+  mult_104/U254/ZN (NAND3_X1)                             0.03       1.80 f
+  mult_104/U281/ZN (XNOR2_X1)                             0.05       1.85 r
+  mult_104/U293/ZN (XNOR2_X1)                             0.06       1.91 r
+  mult_104/U292/ZN (XNOR2_X1)                             0.06       1.97 r
+  mult_104/product[16] (myfir_NB9_DW_mult_tc_3)           0.00       1.97 r
+  add_2_root_add_0_root_add_111/A[8] (myfir_NB9_DW01_add_1)
+                                                          0.00       1.97 r
+  add_2_root_add_0_root_add_111/U8/ZN (XNOR2_X1)          0.06       2.03 r
+  add_2_root_add_0_root_add_111/U7/ZN (XNOR2_X1)          0.06       2.09 r
+  add_2_root_add_0_root_add_111/SUM[8] (myfir_NB9_DW01_add_1)
+                                                          0.00       2.09 r
+  add_0_root_add_0_root_add_111/A[8] (myfir_NB9_DW01_add_0)
+                                                          0.00       2.09 r
+  add_0_root_add_0_root_add_111/U1_8/S (FA_X1)            0.12       2.21 f
+  add_0_root_add_0_root_add_111/SUM[8] (myfir_NB9_DW01_add_0)
+                                                          0.00       2.21 f
+  Reg_dout/R[8] (regn_synch_N9_9)                         0.00       2.21 f
+  Reg_dout/U22/ZN (AOI22_X1)                              0.05       2.26 r
+  Reg_dout/U23/ZN (INV_X1)                                0.02       2.28 f
+  Reg_dout/Q_reg[8]/D (DFF_X1)                            0.01       2.29 f
+  data arrival time                                                  2.29
+
+  clock clk1 (rise edge)                                  2.40       2.40
+  clock network delay (ideal)                             0.00       2.40
+  clock uncertainty                                      -0.07       2.33
+  Reg_dout/Q_reg[8]/CK (DFF_X1)                           0.00       2.33 r
+  library setup time                                     -0.04       2.29
+  data required time                                                 2.29
+  --------------------------------------------------------------------------
+  data required time                                                 2.29
+  data arrival time                                                 -2.29
+  --------------------------------------------------------------------------
+  slack (MET)                                                        0.00
+
+
+1
