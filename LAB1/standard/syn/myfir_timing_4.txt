@@ -1,0 +1,90 @@
+Information: Updating design information... (UID-85)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : myfir_NB9
+Version: O-2018.06-SP4
+Date   : Sat Nov 14 17:25:32 2020
+****************************************
+
+Operating Conditions: typical   Library: NangateOpenCellLibrary
+Wire Load Model Mode: top
+
+  Startpoint: b4[3] (input port clocked by clk1)
+  Endpoint: Reg_dout/Q_reg[8]
+            (rising edge-triggered flip-flop clocked by clk1)
+  Path Group: clk1
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  myfir_NB9          5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk1 (rise edge)                                  0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  input external delay                                    0.50       0.50 f
+  b4[3] (in)                                              0.00       0.50 f
+  mult_105/a[3] (myfir_NB9_DW_mult_tc_4)                  0.00       0.50 f
+  mult_105/U228/ZN (INV_X1)                               0.05       0.55 r
+  mult_105/U225/Z (XOR2_X1)                               0.19       0.74 r
+  mult_105/U305/ZN (NAND2_X1)                             0.11       0.85 f
+  mult_105/U289/ZN (OAI22_X1)                             0.08       0.93 r
+  mult_105/U48/S (HA_X1)                                  0.08       1.01 r
+  mult_105/U47/S (FA_X1)                                  0.12       1.13 f
+  mult_105/U341/ZN (AOI222_X1)                            0.11       1.24 r
+  mult_105/U214/ZN (INV_X1)                               0.03       1.27 f
+  mult_105/U340/ZN (AOI222_X1)                            0.09       1.36 r
+  mult_105/U213/ZN (INV_X1)                               0.03       1.39 f
+  mult_105/U339/ZN (AOI222_X1)                            0.09       1.48 r
+  mult_105/U216/ZN (INV_X1)                               0.03       1.51 f
+  mult_105/U10/CO (FA_X1)                                 0.09       1.60 f
+  mult_105/U9/CO (FA_X1)                                  0.09       1.69 f
+  mult_105/U8/CO (FA_X1)                                  0.09       1.78 f
+  mult_105/U7/CO (FA_X1)                                  0.09       1.87 f
+  mult_105/U6/CO (FA_X1)                                  0.09       1.96 f
+  mult_105/U5/CO (FA_X1)                                  0.09       2.05 f
+  mult_105/U4/CO (FA_X1)                                  0.09       2.14 f
+  mult_105/U3/CO (FA_X1)                                  0.09       2.23 f
+  mult_105/U240/Z (XOR2_X1)                               0.07       2.30 f
+  mult_105/U239/Z (XOR2_X1)                               0.08       2.38 f
+  mult_105/product[16] (myfir_NB9_DW_mult_tc_4)           0.00       2.38 f
+  add_3_root_add_0_root_add_111/A[8] (myfir_NB9_DW01_add_3)
+                                                          0.00       2.38 f
+  add_3_root_add_0_root_add_111/U1_8/S (FA_X1)            0.13       2.51 f
+  add_3_root_add_0_root_add_111/SUM[8] (myfir_NB9_DW01_add_3)
+                                                          0.00       2.51 f
+  add_1_root_add_0_root_add_111/B[8] (myfir_NB9_DW01_add_2)
+                                                          0.00       2.51 f
+  add_1_root_add_0_root_add_111/U1_8/S (FA_X1)            0.15       2.66 r
+  add_1_root_add_0_root_add_111/SUM[8] (myfir_NB9_DW01_add_2)
+                                                          0.00       2.66 r
+  add_0_root_add_0_root_add_111/B[8] (myfir_NB9_DW01_add_0)
+                                                          0.00       2.66 r
+  add_0_root_add_0_root_add_111/U1_8/S (FA_X1)            0.12       2.77 f
+  add_0_root_add_0_root_add_111/SUM[8] (myfir_NB9_DW01_add_0)
+                                                          0.00       2.77 f
+  Reg_dout/R[8] (regn_synch_N9_9)                         0.00       2.77 f
+  Reg_dout/U8/ZN (AOI22_X1)                               0.05       2.82 r
+  Reg_dout/U7/ZN (INV_X1)                                 0.02       2.84 f
+  Reg_dout/Q_reg[8]/D (DFF_X1)                            0.01       2.85 f
+  data arrival time                                                  2.85
+
+  clock clk1 (rise edge)                                  9.60       9.60
+  clock network delay (ideal)                             0.00       9.60
+  clock uncertainty                                      -0.07       9.53
+  Reg_dout/Q_reg[8]/CK (DFF_X1)                           0.00       9.53 r
+  library setup time                                     -0.04       9.49
+  data required time                                                 9.49
+  --------------------------------------------------------------------------
+  data required time                                                 9.49
+  data arrival time                                                 -2.85
+  --------------------------------------------------------------------------
+  slack (MET)                                                        6.64
+
+
+1
