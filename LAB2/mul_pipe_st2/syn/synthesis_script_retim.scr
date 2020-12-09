@@ -1,0 +1,54 @@
+# Analyzing and checking vhdl netlist#
+# here the analyze command is used for each file from bottom to top #
+##############################################################
+
+analyze -library WORK -format vhdl {../src/fpnormalize.vhd ../src/fpround.vhd ../src/unpackfp.vhd ../src/packfp.vhd ../src/regn_synch.vhd ../src/d_ff.vhd}
+analyze -library WORK -format vhdl {../src/fpmul_stage1_struct.vhd ../src/fpmul_stage2_struct.vhd ../src/fpmul_stage3_struct.vhd ../src/fpmul_stage4_struct.vhd}
+analyze -library WORK -format vhdl ../src/fpmul_pipeline.vhd
+##############################################################
+
+#Elaborating the top entity
+elaborate FPmul -arch pipeline -lib WORK
+link 
+##############################################################
+
+#Forcing a clock of period Period connected to the input port CLK
+create_clock -name "clk1" -period 0.78 clk
+
+set_dont_touch_network clk1
+set_clock_uncertainty 0.07 [get_clocks clk1]
+set_input_delay 0.5 -max -clock clk1 [remove_from_collection [all_inputs] clk]
+set_output_delay 0.5 -max -clock clk1 [all_outputs]
+set OLOAD [load_of NangateOpenCellLibrary/BUF_X4/A]
+set_load $OLOAD [all_outputs]
+##############################################################
+
+# Forcing a combinational max delay same as clock period
+set_max_delay 0.78 -from [all_inputs] -to [all_outputs]
+##############################################################
+
+# Flatten the architecture
+ungroup -all -flatten
+##############################################################
+
+compile
+##############################################################
+
+# Performing retiming
+optimize_registers
+
+# saving reports
+report_timing > fpmul_retim_timing.txt
+report_area > fpmul_retim_area.txt
+##############################################################
+
+#imposing verilog rules for the names of the internal signals
+change_names -hierarchy -rules verilog
+
+#saving delay information file
+#saving verilog netlist
+#saving the constraints to input and output ports in standard format
+
+write_sdf ../netlist/fpmul_retim.sdf
+write -f verilog -hierarchy -output ../netlist/fpmul_retim.v
+write_sdc ../netlist/fpmul_retim.sdc

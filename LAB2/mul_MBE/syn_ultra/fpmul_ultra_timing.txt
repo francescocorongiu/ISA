@@ -1,0 +1,66 @@
+Information: Building the design 'FPmul_stage2'. (HDL-193)
+Warning: Cannot find the design 'FPmul_stage2' in the library 'WORK'. (LBR-1)
+Warning: Unable to resolve reference 'FPmul_stage2' in 'FPmul'. (LINK-5)
+Warning: Design 'FPmul' has '1' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Information: Updating design information... (UID-85)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : FPmul
+Version: O-2018.06-SP4
+Date   : Fri Nov 20 00:23:20 2020
+****************************************
+
+Operating Conditions: typical   Library: NangateOpenCellLibrary
+Wire Load Model Mode: top
+
+  Startpoint: I3/EXP_out_round_reg[4]
+              (rising edge-triggered flip-flop clocked by clk1)
+  Endpoint: I4/FP_Z_reg[7]
+            (rising edge-triggered flip-flop clocked by clk1)
+  Path Group: clk1
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  FPmul              5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clk1 (rise edge)                   0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  I3/EXP_out_round_reg[4]/CK (DFF_X1)      0.00       0.00 r
+  I3/EXP_out_round_reg[4]/Q (DFF_X1)       0.10       0.10 r
+  U333/ZN (AND2_X1)                        0.04       0.14 r
+  U334/ZN (AND2_X1)                        0.04       0.18 r
+  U337/ZN (NAND2_X1)                       0.03       0.21 f
+  U338/ZN (XNOR2_X1)                       0.06       0.27 r
+  U339/ZN (INV_X1)                         0.03       0.30 f
+  U340/ZN (AOI21_X1)                       0.04       0.34 r
+  U341/ZN (OAI21_X1)                       0.04       0.38 f
+  U352/ZN (NOR3_X1)                        0.07       0.45 r
+  U221/ZN (OR2_X1)                         0.05       0.50 r
+  U358/ZN (NOR2_X1)                        0.03       0.53 f
+  U359/ZN (NAND2_X1)                       0.04       0.58 r
+  U369/Z (BUF_X1)                          0.06       0.64 r
+  U375/ZN (OAI22_X1)                       0.04       0.68 f
+  I4/FP_Z_reg[7]/D (DFF_X1)                0.01       0.69 f
+  data arrival time                                   0.69
+
+  clock clk1 (rise edge)                   0.80       0.80
+  clock network delay (ideal)              0.00       0.80
+  clock uncertainty                       -0.07       0.73
+  I4/FP_Z_reg[7]/CK (DFF_X1)               0.00       0.73 r
+  library setup time                      -0.04       0.69
+  data required time                                  0.69
+  -----------------------------------------------------------
+  data required time                                  0.69
+  data arrival time                                  -0.69
+  -----------------------------------------------------------
+  slack (MET)                                         0.00
+
+
+1
