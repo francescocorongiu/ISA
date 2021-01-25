@@ -1,0 +1,14 @@
+source /software/scripts/init_msim6.5c
+vcom -93 -work ./work/ ../tb/globals.vhd
+vcom -93 -work ./work/ ../tb/DataRAM.vhd
+vcom -93 -work ./work/ ../tb/InstructionRAM.vhd
+vcom -93 -work ./work/ ../tb/RegisterFile.vhd
+vcom -93 -work ./work/ ../tb/TB_RV32I.vhd
+
+vlog -work ./work/ ../innovus/rv32i_4.v
+
+vsim -L /software/dk/nangate45/verilog/msim6.5c -sdftyp /tb_RV32I/U1=../innovus/rv32i_4.sdf -t 10ps work.tb_rv32i
+
+vcd file ../vcd/design.vcd
+vcd add /tb_rv32i/U1/*
+run 2 us 	

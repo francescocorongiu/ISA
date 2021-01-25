@@ -1,0 +1,14 @@
+source /software/scripts/init_msim6.5c
+#vsim -c #modelsim senza gui
+vlib work #if 'work' directory not exist
+vcom -93 -work ./work/ ../tb/globals.vhd
+vcom -93 -work ./work/ ../tb/DataRAM.vhd
+vcom -93 -work ./work/ ../tb/InstructionRAM.vhd
+vcom -93 -work ./work/ ../tb/RegisterFile.vhd
+#vcom -93 -work ./work/ ../netlist/rv32i.vhd
+vlog -work ./work/ ../netlist/rv32i.v
+vcom -93 -work ./work/ ../tb/TB_RV32I.vhd
+
+vsim -L /software/dk/nangate45/verilog/msim6.5c -sdftyp /tb_RV32I/U1=../netlist/rv32i.sdf -t 10ps work.tb_rv32i
+
+run 1 us
