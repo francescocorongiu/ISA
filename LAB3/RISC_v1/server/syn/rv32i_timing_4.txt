@@ -7,7 +7,7 @@ Report : timing
         -max_paths 1
 Design : RV32I
 Version: O-2018.06-SP4
-Date   : Sat Jan 23 16:00:18 2021
+Date   : Wed Feb 17 13:23:11 2021
 ****************************************
 
 Operating Conditions: typical   Library: NangateOpenCellLibrary

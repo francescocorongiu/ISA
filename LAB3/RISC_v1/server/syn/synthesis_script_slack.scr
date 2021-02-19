@@ -20,7 +20,7 @@ link
 ##############################################################
 
 #Forcing a clock of period Period connected to the input port CLK
-create_clock -name "clk1" -period 2.30 Clk
+create_clock -name "clk1" -period 0 Clk
 
 set_dont_touch_network clk1
 set_clock_uncertainty 0.07 [get_clocks clk1]
@@ -31,7 +31,7 @@ set_load $OLOAD [all_outputs]
 ##############################################################
 
 # Forcing a combinational max delay same as clock period
-set_max_delay 2.30 -from [all_inputs] -to [all_outputs]
+set_max_delay 0 -from [all_inputs] -to [all_outputs]
 ##############################################################
 
 # Flatten the architecture
@@ -42,8 +42,8 @@ compile
 ##############################################################
 
 # saving reports
-report_timing > rv32i_timing.txt
-report_area > rv32i_area.txt
+report_timing > rv32i_timing_SLACK.txt
+#report_area > rv32i_area.txt
 ##############################################################
 
 #imposing verilog rules for the names of the internal signals

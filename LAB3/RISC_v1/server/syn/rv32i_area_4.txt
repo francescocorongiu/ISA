@@ -3,7 +3,7 @@
 Report : area
 Design : RV32I
 Version: O-2018.06-SP4
-Date   : Sat Jan 23 16:00:20 2021
+Date   : Wed Feb 17 13:23:11 2021
 ****************************************
 
 Library(s) Used:

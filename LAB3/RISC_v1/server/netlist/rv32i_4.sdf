@@ -1,7 +1,7 @@
 (DELAYFILE
 (SDFVERSION "OVI 2.1")
 (DESIGN "RV32I")
-(DATE "Sat Jan 23 16:00:21 2021")
+(DATE "Wed Feb 17 13:23:11 2021")
 (VENDOR "NangateOpenCellLibrary")
 (PROGRAM "Synopsys Design Compiler cmos")
 (VERSION "O-2018.06-SP4")
