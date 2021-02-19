@@ -6,7 +6,7 @@ package mytypes is
 	
 	function log_2( i : integer) return integer;
 	
-	type aluOp is (ADDS, SUBS, ANDD, LUI, EXOR, LT, EQ, ARS);
+	type aluOp is (ADDS, SUBS, ANDD, LUI, EXOR, LT, EQ, ARS, ABSI);
 
 	-- Control unit input sizes
 	constant FUNC3_SIZE		: integer := 3;
@@ -21,6 +21,7 @@ package mytypes is
 	constant ITYPE_ADDI	: std_logic_vector(OP_CODE_SIZE-1 downto 0) := "0010011";	--[0x24] R[RD] <-- R[RS1] + imm12
 	constant ITYPE_ANDI	: std_logic_vector(OP_CODE_SIZE-1 downto 0) := "0010011";	--[0x24] R[RD] <-- R[RS1] AND uimm12
 	constant ITYPE_SRAI	: std_logic_vector(OP_CODE_SIZE-1 downto 0) := "0010011";	--[0x24] R[RD] <-- (R[RS1]_31)^ imm5 ## (R[RS1]>> imm5)
+	constant ITYPE_ABSI	: std_logic_vector(OP_CODE_SIZE-1 downto 0) := "0010011";	--[0x24] R[RD] <-- |R[RS1]|
 
 	-- R-Type instruction -> OPCODE field
 	constant RTYPE_ADD	: std_logic_vector(OP_CODE_SIZE-1 downto 0) := "0110011";	--[0x33] R[RD] <-- R[RS1] + R[RS2]
@@ -41,6 +42,7 @@ package mytypes is
 	constant ADDI_FUNC3	: std_logic_vector(2 downto 0) := "000";
 	constant ANDI_FUNC3	: std_logic_vector(2 downto 0) := "111";
 	constant SRAI_FUNC3	: std_logic_vector(2 downto 0) := "101";
+	constant ABSI_FUNC3	: std_logic_vector(2 downto 0) := "011"; 
 
 	-- R-type instruction -> FUNC3 field
 	constant ADD_FUNC3	: std_logic_vector(2 downto 0) := "000";

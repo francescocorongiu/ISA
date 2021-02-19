@@ -63,7 +63,7 @@ architecture riscv_cu_hw of riscv_cu is
   constant cw_mem : mem_array := ("110000010000100011", --LUI
 								"111000110001100011", --AUIPC
 								"110000000100100101", --LW
-								"110000000100100011", --I.Type (ADDI, ANDI, SRAI)
+								"110000000100100011", --I.Type (ADDI, ANDI, SRAI, ABSI)
 								"110000000110000011", --R.Type (ADD, SLT, XOR)
 								"110000001110101000", --SW
 								"111000000110010000", --BEQ
@@ -194,7 +194,7 @@ begin
 	  when ex_flush =>
 		if (BR_FLAG = '1') then			-- if the branch is taken, flush the instructions in stages ID and IF
 		  cw2 <= "010000000000000";		-- in ID stage: force NPC_SEL to 01 (BR_target)
-		  cw1 <= "010000000000000000";	-- in IF stage: enable only PC_WR_EN
+		  cw1 <= "010000000000000000";	-- in IF stage: enable only PC_WR_EN 
 		else
 		  cw1 <= cw_LUT;
 		  cw2 <= cw2_i;
@@ -218,12 +218,13 @@ begin
   begin  -- process ALU_OP_CODE_P
 	case IR_opcode is
 	    
-		-- opcodes of ADDI, ANDI, SRAI are the same, need to see func3
+		-- opcodes of ADDI, ANDI, SRAI, ABSI are the same, need to see func3
 		when ITYPE_ADDI =>
 			case IR_func3 is
 				when ANDI_FUNC3 => aluOpcode1 <= ANDD;
 				when SRAI_FUNC3 => aluOpcode1 <= ARS;
-				when others => aluOpcode1 <= ADDS;
+				when ABSI_FUNC3 => aluOpcode1 <= ABSI;
+				when others => aluOpcode1 <= ADDS; -- it includes the case of ADDI
 			end case;
 			
 		-- opcodes of ADD, SLT, XOR are the same, need to see func3
@@ -238,7 +239,7 @@ begin
 		
 		when BTYPE_BEQ => aluOpcode1 <= EQ;
 		
-		when others => aluOpcode1 <= ADDS; -- it includes the case of ADDI, ADD, AUIPC, JAL, SW, LW
+		when others => aluOpcode1 <= ADDS; -- it includes the case of ADD, AUIPC, JAL, SW, LW
 	end case;
 
   end process ALU_OPCODE_P;

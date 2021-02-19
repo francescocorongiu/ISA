@@ -110,9 +110,9 @@ begin
 
   PCLOCK: process(Clock)
   begin
-	Clock <= not(Clock) after 4.38 ns;
+	Clock <= not(Clock) after 4.6 ns;
   end process;
 
-  Reset <= '0', '1' after 11 ns;
+  Reset <= '0', '1' after 20 ns;
 
 end TEST;

@@ -5,10 +5,13 @@ vcom -93 -work ./work/ ../tb/globals.vhd
 vcom -93 -work ./work/ ../tb/DataRAM.vhd
 vcom -93 -work ./work/ ../tb/InstructionRAM.vhd
 vcom -93 -work ./work/ ../tb/RegisterFile.vhd
+#vcom -93 -work ./work/ ../netlist/rv32i_4.vhd
+vlog -work ./work/ ../netlist/rv32i_4.v
 vcom -93 -work ./work/ ../tb/TB_RV32I.vhd
-vcom -93 -work ./work/ ../netlist/rv32i.vhd
 
-vsim -L /software/dk/nangate45/verilog/msim6.5c -sdftyp /tb_RV32I/U1=../netlist/rv32i.sdf work.tb_rv32i
 
-run 1.3 us
+vsim -L /software/dk/nangate45/verilog/msim6.5c -sdftyp /tb_RV32I/U1=../netlist/rv32i_4.sdf -t 10ps work.tb_rv32i
+
+do wave.do
+run 2 us
 
