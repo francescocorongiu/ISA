@@ -1,0 +1,16 @@
+#Cleaning simulation files
+rm -r work
+rm transcript
+
+source /software/scripts/init_questa10.7c 
+vlib work
+vcom -93 -work ./work/ ../src/d_ff.vhd
+vcom -93 -work ./work/ ../src/fa.vhd
+vcom -93 -work ./work/ ../src/ha.vhd
+vcom -93 -work ./work/ ../src/mux21.vhd
+vcom -93 -work ./work/ ../src/encoder3x3.vhd
+vcom -93 -work ./work/ ../src/mul_MBE.vhd
+
+vlog -sv ../tb/top.sv
+vsim -c top
+run 4 us

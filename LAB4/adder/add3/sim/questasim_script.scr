@@ -1,0 +1,5 @@
+source /software/scripts/init_questa10.7c 
+#vlib work
+vlog -sv ../tb/top.sv
+vsim top
+run 4 us

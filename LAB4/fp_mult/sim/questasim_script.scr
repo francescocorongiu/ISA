@@ -1,0 +1,25 @@
+#Cleaning simulation files
+rm -r work
+rm transcript
+
+source /software/scripts/init_questa10.7c 
+vlib work
+vcom -93 -work ./work/ ../src/d_ff.vhd
+vcom -93 -work ./work/ ../src/fa.vhd
+vcom -93 -work ./work/ ../src/ha.vhd
+vcom -93 -work ./work/ ../src/mux21.vhd
+vcom -93 -work ./work/ ../src/encoder3x3.vhd
+vcom -93 -work ./work/ ../src/mul_MBE.vhd
+vcom -93 -work ./work/ ../src/regn_synch.vhd
+vcom -93 -work ./work/ ../src/unpackfp.vhd
+vcom -93 -work ./work/ ../src/packfp.vhd
+vcom -93 -work ./work/ ../src/fpround.vhd
+vcom -93 -work ./work/ ../src/fpnormalize.vhd
+vcom -93 -work ./work/ ../src/fpmul_stage1_struct.vhd
+vcom -93 -work ./work/ ../src/fpmul_stage2_struct.vhd
+vcom -93 -work ./work/ ../src/fpmul_stage3_struct.vhd
+vcom -93 -work ./work/ ../src/fpmul_stage4_struct.vhd
+vcom -93 -work ./work/ ../src/fpmul_pipeline.vhd
+
+vlog -sv ../tb/top.sv
+vsim -c top
